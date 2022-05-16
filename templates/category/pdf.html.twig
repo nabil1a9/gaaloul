@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<title>Category index</title>
+
+
+    <h1>Category index</h1>
+    
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                 <th>id</th><th>nom</th>
+                                           
+                                            
+                                        </tr>
+                                    </thead>
+                                   
+                                    <tbody>
+                                                                  {% for i in category %}
+                                    <tr>
+                                   <td>{{ i.id }}</td>
+                                   <td>{{ i.name }}</td>
+                                   
+
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

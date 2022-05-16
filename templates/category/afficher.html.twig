@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+{% block content %}
+<div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Liste des Categories</h1>
+                        
+ <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                             <th>id</th><th>nom</th>
+                                           
+                                            
+                                        </tr>
+                                    </thead>
+                                   
+                                    <tbody>
+                                                                  {% for i in category %}
+                                    <tr>
+                                   <td>{{ i.id }}</td>
+                                   <td>{{ i.name }}</td>
+                                   
+
+            <td>
+                                           
+                                           
+                                             <button type="button" class="fa fa-trash" data-toggle="modal" data-target="#exampleModal"> </button>
+                                                                                                
+                                                                                               
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Vous voulez vraiment supprimer votre categorie? 
+                                            </div>
+                                             <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <a href="{{ path('supprimer1',{'id':i.id}) }}"><i class="fa fa-trash"  style="color:#ff5b5b;font-size:20px"></i> </a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        </div>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="{{ i.id }}exampleModal"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ...
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </td>
+                                         <td> <a href="{{ path('detail',{'id':i.id}) }}">detail</a></td>
+     <td><a href="{{ path('update',{'id':i.id}) }}"><i class="fa fa-pencil" style="font-size:24px"></i></a></td>
+             {% endfor %}
+             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"><a href="{{ path('ajouter') }}">Ajouter</a></button>
+
+                                   </tbody>
+                                </table>
+                            
+                             <a href="{{ path('pdf') }}">pdf</a>    
+                              
+  </div>
+                    </div>
+                    {{ knp_pagination_render(category) }}
+                </main>
+                           
+ {% endblock %}

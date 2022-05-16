@@ -1,0 +1,119 @@
+{% extends 'front/base.html.twig ' %}
+
+{% block corp %}{% block javascript %} {% endblock %}  
+
+     <br><br><br>
+        {% for message in app.flashes('info')%}
+<div class="alert alert-danger">
+{{message}}
+</div>
+  {% endfor %}
+ <br><br>
+ 
+<style>
+.boxtttt{
+	
+		transition: 1s;
+
+	}
+	.boxtttt img{
+		display: block;
+	border-radius: 5px;
+	}
+	.boxtttt:hover{
+		transform: scale(1.1);
+		z-index: 2;
+	}
+	</style>
+  
+
+<section class="food_section layout_padding">
+
+
+    <div class="container">
+
+
+         <div class="heading_container heading_center">
+           <h2> Nos produits </h2>
+       
+           </div>
+
+          
+
+      <br><br><br>
+ <br><br>
+
+
+      <section class="home-about-area">
+
+				<div class="container-fluid">				
+		<div class="row justify-content-center align-items-center">		
+        	
+             {% for p in Usedproduct  %}
+             
+                 <div class="media forum-item">
+                         
+  
+                         <br>
+                            </div>
+                            </div>
+                            <br> 
+          	<div class="col-lg-6 no-padding home-about-left">
+            <div class="boxtttt">
+			<img id="img"  class="card-img-top img-fluid" width="20" src="/uploads/{{p.image}}">   <br><br>  <br><br>
+						</div>
+            	</div>
+                 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+          
+			<div class="col-lg-6 no-padding home-about-right" style="margin-top:-10%">
+                  
+                     <a style="margin-left:10%"  >{{ p.name}} </a> <br>
+                         
+                        <p>
+                        <span style="margin-left:10%">{{ p.description}}</span>
+                        </p>
+
+                          <p>
+                        <span style="margin-left:10%">{{ p.prix}}</span>
+                        </p>
+                       
+                        
+                             
+                                
+                                                                                               
+            
+   
+	        </div>
+		
+                               
+					<br> <br> <br> <br>
+                                   
+    {% endfor %}	
+    
+    
+					</div>
+
+				</div>
+ 
+       
+          <footer id="footer"></footer>
+   </div> 
+    </section>
+
+
+
+
+
+
+
+<div class="container py-5">
+		<div class="d-flex justify-content-center">
+
+		</div>
+    
+	</div>
+
+
+
+
+{% endblock %}
